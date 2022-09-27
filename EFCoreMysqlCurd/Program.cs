@@ -1,4 +1,14 @@
+using EFCoreMysqlCurd.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ParameterContext>(opt => {
+string connectionString = builder.Configuration.GetConnectionString("MySQLConnection");
+var serverVersion = ServerVersion.AutoDetect(connectionString);
+opt.UseMySql(connectionString, serverVersion);
+});
+
 
 // Add services to the container.
 
@@ -22,3 +32,5 @@ app.MapControllers();
 
 app.Run();
 
+//转载自https://blog.csdn.net/EAyayaya/article/details/124048491
+//转载自http://t.csdn.cn/iVInw
