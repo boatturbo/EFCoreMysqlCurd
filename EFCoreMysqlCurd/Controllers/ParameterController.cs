@@ -24,6 +24,8 @@ namespace EFCoreMysqlCurd.Controllers
             return Ok(ParameterTable);
         }
 
+        //手动随便往Parameter_Table添加些数据，运行此项目。点击展开Parameter/GET/api​/parameter​/getall，点击try it out => Excute，能看到查询出的结果。
+
 
         //添加一个数据，传入一个不带ID的
         [HttpPost("parameter/postone")]
